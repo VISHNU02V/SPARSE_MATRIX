@@ -5,7 +5,7 @@
 void main(){
     char ch='y';
     do{
-        int r,c,i,j,a[50][50],b[50][50],k=1,c1[50][50],v[50][50],m,n,l,s;
+        int r,c,i,j,a[50][50],b[50][50],k=1,c1[50][50],v[50][50],m,n,l,s,w,z=1;
         printf("\n");
         printf("\n######## TO CONVERT A MATRIX TO SPARSE THEN TO TRANSPOSE OF SPARES ########\n");
         printf("\n\n\n~~~~~~~~~~~~~~~~~~~~~~~   inputing...........\n\n");
@@ -48,10 +48,16 @@ void main(){
         c1[0][0]=b[0][1];
         c1[0][1]=b[0][0];
         c1[0][2]=b[0][2];
-        for(i=1;i<k;i++){
-            c1[i][0]=b[i][1];
-            c1[i][1]=b[i][0];
-            c1[i][2]=b[i][2];                
+        w=b[0][2];
+        for(i=0;i<b[0][1];i++){
+            for(j=1;j<=w;j++){
+                if(b[j][1]==i){
+                    c1[z][0]=b[j][1];
+                    c1[z][1]=b[j][0];
+                    c1[z][2]=b[j][2];
+                    z++;
+                }
+            }
         }
         printf("\nTHE TRANSPOSE OF SPARSE MATRIX:\n");
         for(i=0;i<k;i++){
